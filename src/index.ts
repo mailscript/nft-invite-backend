@@ -17,17 +17,25 @@ export class Core {
 	constructor(app: Express) {
 		this.app = app;
 	}
-  async receiveAddress(addr) {
-    this.invites.insertOne({
+  async receiveAddress(req, res) {
+    const {addr} = req.body;
+    await this.invites.insertOne({
       addr,
       created_at: new Date()
     })
+    res.send('ok')
   }
 	async start() {
 		this.mongodbClient = getClient();
 		await this.mongodbClient.connect();
 		this.db = this.mongodbClient.db("nft-invites");
     this.invites = this.db.collection('invites')
+    await this.invites.createIndex({
+      addr: 1
+    }, {
+      unique: true
+    })
+    this.app.post('/api/v0/register', this.receiveAddress)
 
 	}
 	async stop() {
