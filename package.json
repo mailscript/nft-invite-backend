@@ -28,7 +28,7 @@
     "ts-node-dev": "^1.1.8"
   },
   "scripts": {
-    "start": "node ./dist/start.js",
+    "start": "node ./dist/index.js",
     "build": "tsc",
     "dev": "ts-node-dev src/index.ts",
     "lint:fix": "eslint --fix \"src/**/*.{ts,tsx}\"",
