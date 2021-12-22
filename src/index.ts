@@ -16,13 +16,20 @@ export class Core {
 
 	constructor(app: Express) {
 		this.app = app;
+
+    this.receiveAddress = this.receiveAddress.bind(this)
 	}
   async receiveAddress(req, res) {
     const {addr} = req.body;
-    await this.invites.insertOne({
-      addr,
-      created_at: new Date()
-    })
+    try {
+      await this.invites.insertOne({
+        addr,
+        created_at: new Date()
+      })
+    } catch (ex) {
+      console.log(ex)
+      return res.send('fail')
+    }
     res.send('ok')
   }
 	async start() {
