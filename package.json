@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "assert": "^2.0.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.25.0",
+    "dids": "^2.4.0",
+    "express": "^4.17.1",
+    "mongodb": "^4.1.2",
+    "tslib": "^2.3.1",
+    "uuid": "^8.3.2"
+  },
   "devDependencies": {
     "typescript": "^4.4.4",
     "@types/jest": "^26.0.24",
@@ -19,6 +28,7 @@
     "ts-node-dev": "^1.1.8"
   },
   "scripts": {
+    "start": "node ./dist/start.js",
     "build": "tsc",
     "dev": "ts-node-dev src/index.ts",
     "lint:fix": "eslint --fix \"src/**/*.{ts,tsx}\"",
