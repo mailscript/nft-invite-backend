@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "dependencies": {
     "assert": "^2.0.0",
+    "axios": "^0.24.0",
     "cors": "^2.8.5",
     "date-fns": "^2.25.0",
     "dids": "^2.4.0",
@@ -14,7 +15,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "typescript": "^4.4.4",
     "@types/jest": "^26.0.24",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
@@ -25,11 +25,13 @@
     "prettier": "^2.4.1",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
-    "ts-node-dev": "^1.1.8"
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.4"
   },
   "scripts": {
     "start": "node ./dist/index.js",
     "build": "tsc",
+    "prepare": "npm run build",
     "dev": "ts-node-dev src/index.ts",
     "lint:fix": "eslint --fix \"src/**/*.{ts,tsx}\"",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
